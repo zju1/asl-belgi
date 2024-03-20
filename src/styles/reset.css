@@ -1,0 +1,68 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.confirmDialog .MuiDialogActions-root {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0;
+  overflow: hidden;
+}
+
+.confirmDialog .MuiDialogActions-root button {
+  border-radius: 0;
+  margin: 0;
+  height: 45px;
+  border-top: 1px solid #ababb071;
+  background: transparent;
+  color: #000;
+  font-weight: 600 !important;
+  font-size: 14px;
+  transition: 0ms;
+}
+
+.confirmDialog .MuiDialogActions-root button:hover {
+  background: rgba(0, 0, 0, 0.05) !important;
+}
+
+.confirmDialog .MuiDialogActions-root button:first-of-type {
+  border-right: 1px solid #ababb071;
+}
+
+.confirmDialog .MuiTypography-h6 {
+  font: 600 24px "Open Sans", sans-serif;
+  text-align: center;
+}
+
+.confirmDialog .MuiTypography-body1 {
+  font: 300 15px "Open Sans", sans-serif;
+  text-align: center;
+  line-height: 20px;
+  color: #000;
+}
+
+@media (max-width: 900px) {
+  .confirmDialog .MuiDialogActions-root button {
+    height: 40px;
+    font-size: 12px;
+  }
+
+  .confirmDialog .MuiTypography-h6 {
+    font: 600 18px "Open Sans", sans-serif;
+  }
+
+  .confirmDialog .MuiTypography-body1 {
+    font: 500 12px "Open Sans", sans-serif;
+    line-height: 18px;
+  }
+}
+
+.leaflet-control-container .leaflet-routing-container-hide {
+  display: none;
+}
+
+input[type="file"]::file-selector-button {
+  display: none;
+}
