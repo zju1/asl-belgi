@@ -1,7 +1,15 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useTranslation } from "react-i18next";
 import { AppPage } from "../../layout/page-wrapper/PageWrapper";
-import { Button, Fab, LinearProgress, Typography } from "@mui/material";
+import {
+  Button,
+  Fab,
+  IconButton,
+  InputAdornment,
+  LinearProgress,
+  OutlinedInput,
+  Typography,
+} from "@mui/material";
 import {
   useAssignMarkMutation,
   useGetAssignedMarksQuery,
@@ -10,7 +18,7 @@ import { useCallback, useRef, useState } from "react";
 import { useDebouncedValue } from "../../hooks/useDebouncedValue";
 import { Stack } from "@mui/system";
 import { AssignedItem } from "../../lib/widgets/AssignedItem";
-import { QrCodeScanner } from "@mui/icons-material";
+import { Close, QrCodeScanner } from "@mui/icons-material";
 import { BottomSheet } from "react-spring-bottom-sheet";
 import { useAppDispatch, useAppSelector } from "../../app/store/store.config";
 import { useSymbologyScanner } from "@use-symbology-scanner/react";
@@ -21,7 +29,7 @@ import { toast } from "sonner";
 import { UserSelect } from "../../lib/widgets/UserSelect";
 
 export function Homepage() {
-  const [search] = useState("");
+  const [search, setSearch] = useState("");
   const key = useDebouncedValue(search, 300);
   const [open, setOpen] = useState(false);
   const user = useAppSelector((store) => store.auth.user);
@@ -86,6 +94,20 @@ export function Homepage() {
     >
       {isLoading && <LinearProgress />}
       <Stack p="12px" gap="12px">
+        <OutlinedInput
+          placeholder={t("search")}
+          onChange={(event) => setSearch(event.target.value)}
+          value={search}
+          endAdornment={
+            search.length > 0 && (
+              <InputAdornment position="end">
+                <IconButton onClick={() => setSearch("")} size="small">
+                  <Close />
+                </IconButton>
+              </InputAdornment>
+            )
+          }
+        />
         {data?.data.map((item) => (
           <AssignedItem {...item} key={item.id} />
         ))}

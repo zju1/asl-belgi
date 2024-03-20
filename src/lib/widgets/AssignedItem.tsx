@@ -13,7 +13,7 @@ export function AssignedItem(props: CodeResponse) {
       </div>
       <div className="lbPair">
         <h5> {t("assignedAt")} </h5>
-        <p> {moment(props.assigned_at).format("D-MMM, YYYY, HH:mm")} </p>
+        <p> {moment.utc(props.assigned_at).format("D-MMM, YYYY, HH:mm")} </p>
       </div>
       <div className="lbPair">
         <h5> {t("item")} </h5>
@@ -21,7 +21,7 @@ export function AssignedItem(props: CodeResponse) {
       </div>
       <div className="lbPair">
         <h5> {t("packedAt")} </h5>
-        <p> {moment(props.packed_at).format("D-MMM, YYYY, HH:mm")} </p>
+        <p> {moment.utc(props.packed_at).format("D-MMM, YYYY, HH:mm")} </p>
       </div>
       <div className="lbPair">
         <h5> {t("mark")} </h5>
