@@ -82,7 +82,7 @@ export function UserSelect({
             onSearch={(value) => setUser(value)}
             options={(users?.data || []).map((item) => ({
               value: item.id.toString(),
-              label: item.user_id,
+              label: item.login,
             }))}
             label={t("user")}
             loading={usersFetching}

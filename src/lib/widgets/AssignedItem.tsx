@@ -19,10 +19,10 @@ export function AssignedItem(props: CodeResponse) {
         <h5> {t("item")} </h5>
         <p> {props.item} </p>
       </div>
-      <div className="lbPair">
+      {/* <div className="lbPair">
         <h5> {t("packedAt")} </h5>
         <p> {moment.utc(props.packed_at).format("D-MMM, YYYY, HH:mm")} </p>
-      </div>
+      </div> */}
       <div className="lbPair">
         <h5> {t("mark")} </h5>
         <p> {props.mark} </p>

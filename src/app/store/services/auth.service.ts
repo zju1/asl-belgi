@@ -60,7 +60,7 @@ export const authApi = createApi({
       }),
     }),
     getUsersById: builder.query<
-      BaseApi<{ id: number; user_id: string }[]>,
+      BaseApi<{ id: number; user_id: string; login: string }[]>,
       any
     >({
       query: (params) => ({
