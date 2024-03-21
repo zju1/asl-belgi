@@ -38,7 +38,10 @@ export const authApi = createApi({
         method: "POST",
       }),
     }),
-    getAssignedMarks: builder.query<BaseApi<CodeResponse[]>, any>({
+    getAssignedMarks: builder.query<
+      BaseApi<{ date: string; marks: CodeResponse[] }[]>,
+      any
+    >({
       query: (params) => ({
         url: "assignedMarks",
         params,

@@ -27,6 +27,7 @@ import { useConfirm } from "material-ui-confirm";
 import { resetAuth } from "../../app/store/slices/auth.slice";
 import { toast } from "sonner";
 import { UserSelect } from "../../lib/widgets/UserSelect";
+import moment from "moment";
 
 export function Homepage() {
   const [search, setSearch] = useState("");
@@ -63,6 +64,9 @@ export function Homepage() {
           }
           if (error?.data?.code === 50037) {
             toast.error(t("markDisabled"));
+          }
+          if (error?.data?.code === 50038) {
+            toast.error(t("disabledOrInactive"));
           }
         });
     },
@@ -108,8 +112,17 @@ export function Homepage() {
             )
           }
         />
-        {data?.data.map((item) => (
-          <AssignedItem {...item} key={item.id} />
+        {data?.data.map(({ date, marks }) => (
+          <Stack key={date} gap="12px">
+            <Typography sx={{ font: "800 16px Inter, sans-serif" }}>
+              {moment(date).format("D-MMM, YYYY")}{" "}
+            </Typography>
+            <Stack gap="12px">
+              {marks.map((item) => (
+                <AssignedItem {...item} key={item.id} />
+              ))}
+            </Stack>
+          </Stack>
         ))}
       </Stack>
       {!open && (
