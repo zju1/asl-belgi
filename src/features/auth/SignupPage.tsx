@@ -120,9 +120,9 @@ export function SignupPage() {
                     name="organization"
                     variant="standard"
                     control={control}
-                    rules={{
+                    /* rules={{
                       required: { value: true, message: t("required") },
-                    }}
+                    }} */
                     options={(data?.data || []).map((item) => ({
                       label: item.name,
                       value: item.id.toString(),
